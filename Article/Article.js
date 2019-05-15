@@ -38,6 +38,15 @@ class Article {
   }
 }
 
+class ArticleCreator {
+  constructor(parent, header, date, paragaraphs) {
+    this.parent = parent;
+    this.header = header;
+    this.date = date;
+    this.paragaraphs = paragaraphs;
+  }
+}
+
 /* START HERE: 
 
 - Select all classes named ".article" and assign that value to the articles variable.  

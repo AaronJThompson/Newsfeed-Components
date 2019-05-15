@@ -44,6 +44,25 @@ class ArticleCreator {
     this.header = header;
     this.date = date;
     this.paragaraphs = paragaraphs;
+
+    this.article = document.createElement("div");
+    this.article.classList.add("article");
+    this.parent.appendChild(this.article);
+  }
+
+  populateArticle() {
+    let date = getDateElement();
+    let header = getHeaderElement();
+    let paragraphs = getParagraphElements();
+  }
+  getDateElement() {
+
+  }
+  getHeaderElement() {
+
+  }
+  getParagraphElements() {
+
   }
 }
 

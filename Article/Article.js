@@ -48,12 +48,20 @@ class ArticleCreator {
     this.article = document.createElement("div");
     this.article.classList.add("article");
     this.parent.appendChild(this.article);
+
+    this.populateArticle();
   }
 
   populateArticle() {
-    let date = getDateElement();
-    let header = getHeaderElement();
-    let paragraphs = getParagraphElements();
+    let date = this.getDateElement(this.date);
+    let header = this.getHeaderElement(this.header);
+    let paragraphs = this.getParagraphElements(this.paragaraphs);
+
+    this.article.appendChild(header);
+    this.article.appendChild(date);
+    paragraphs.forEach(element => {
+      this.article.appendChild(element);
+    })
   }
   getDateElement(dateText) {
     let element = document.createElement("p");
@@ -84,10 +92,11 @@ class ArticleCreator {
 - With your selection in place, now chain .forEach() on to the articles variable to iterate over the articles NodeList and create a new instance of Article by passing in each article as a parameter to the Article class.
 
 */
+let articleContainer = document.querySelector(".articles");
+new ArticleCreator(articleContainer, "Test header", "May 12th", ["test1", "test2"]);
 
 let articles = document.querySelectorAll(".article");
 
 articles.forEach(item => {
   new Article(item);
 })
-

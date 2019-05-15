@@ -55,14 +55,25 @@ class ArticleCreator {
     let header = getHeaderElement();
     let paragraphs = getParagraphElements();
   }
-  getDateElement() {
-
+  getDateElement(dateText) {
+    let element = document.createElement("p");
+    element.classList.add("date");
+    element.textContent = dateText;
+    return element;
   }
-  getHeaderElement() {
-
+  getHeaderElement(headerText) {
+    let element = document.createElement("h2");
+    element.textContent = headerText;
+    return element;
   }
-  getParagraphElements() {
-
+  getParagraphElements(paragraphArray) {
+    let elementArray = [];
+    paragraphArray.forEach(item => {
+      let element = document.createElement("p");
+      element.textContent = item;
+      elementArray.push(element);
+    });
+    return elementArray;
   }
 }
 

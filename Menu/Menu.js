@@ -1,5 +1,10 @@
 
 const toggleMenu = () => {
+  if (menu.classList.contains("menu--open")){
+    TweenMax.to(menu, .3, {width: "0px"});
+  } else {
+    TweenMax.to(menu, .3, {width: "350px"});
+  }
   menu.classList.toggle("menu--open");
 }
 

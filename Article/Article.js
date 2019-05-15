@@ -56,12 +56,14 @@ class ArticleCreator {
     let date = this.getDateElement(this.date);
     let header = this.getHeaderElement(this.header);
     let paragraphs = this.getParagraphElements(this.paragaraphs);
+    let expandButton = this.getExpandElement();
 
     this.article.appendChild(header);
     this.article.appendChild(date);
     paragraphs.forEach(element => {
       this.article.appendChild(element);
     })
+    this.article.appendChild(expandButton);
   }
   getDateElement(dateText) {
     let element = document.createElement("p");
@@ -82,6 +84,11 @@ class ArticleCreator {
       elementArray.push(element);
     });
     return elementArray;
+  }
+  getExpandElement(){
+    let span = document.createElement("span");
+    span.classList.add("expandButton");
+    return span;
   }
 }
 

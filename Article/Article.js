@@ -12,6 +12,11 @@ class Article {
   }
 
   expandArticle() {
+    if (this.domElement.classList.contains("article-open")){
+      TweenMax.to(this.domElement, .5, {height: "50px"})
+    } else {
+      TweenMax.to(this.domElement, .5, {height: "400px"})
+    }
     this.domElement.classList.toggle("article-open");
   }
 }

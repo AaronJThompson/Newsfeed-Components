@@ -1,5 +1,12 @@
 // Because classes are not hoisted you will need to start your code at the bottom of the page.  Look for the comment "START HERE"
-
+let articleObjects = [];
+function closeAllArticles(){
+  articleObjects.forEach((article => {
+    if(article.domElement.classList.contains("article-open")){
+      article.expandArticle();
+    }
+  }))
+}
 class Article {
   constructor(domElement) {
     this.domElement = domElement;
@@ -19,6 +26,7 @@ class Article {
       TweenMax.to(this.domElement, .5, {height: "50px"});
       this.expandButton.textContent = "Click to Open";
     } else {
+      closeAllArticles();
       TweenMax.to(this.domElement, .5, {height: "400px"});
       this.expandButton.textContent = "Click to Close";
     }
@@ -37,7 +45,6 @@ class Article {
     this.domElement.style.display = "none";
   }
 }
-
 class ArticleCreator {
   constructor(parent, {header, date, paragaraphs}) {
     this.parent = parent;
@@ -114,7 +121,6 @@ let testArticle = {
 new ArticleCreator(articleContainer, testArticle);
 
 let articles = document.querySelectorAll(".article");
-
 articles.forEach(item => {
-  new Article(item);
+  articleObjects.push(new Article(item));
 })

@@ -39,7 +39,7 @@ class Article {
 }
 
 class ArticleCreator {
-  constructor(parent, header, date, paragaraphs) {
+  constructor(parent, {header, date, paragaraphs}) {
     this.parent = parent;
     this.header = header;
     this.date = date;
@@ -100,7 +100,18 @@ class ArticleCreator {
 
 */
 let articleContainer = document.querySelector(".articles");
-new ArticleCreator(articleContainer, "Test header", "May 12th", ["test1", "test2"]);
+
+let testArticle = {
+  header:"This article was added programatically!",
+  date:"May 15th, 2019",
+  paragaraphs: [
+    "Paragraph 1",
+    "Paragraph 2",
+    "Paragraph 3",
+    "Paragraph 4",
+  ]
+}
+new ArticleCreator(articleContainer, testArticle);
 
 let articles = document.querySelectorAll(".article");
 
